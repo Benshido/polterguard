@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9174489101547518626}
   - component: {fileID: 9174489101547518625}
   - component: {fileID: 6519923816028736735}
+  - component: {fileID: 5139380559852509432}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9174489101547518627
 MeshFilter:
@@ -133,3 +134,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5139380559852509432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9174489101547518631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7fd10dc6cf4ca24fb5e6fa7e18d772b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
