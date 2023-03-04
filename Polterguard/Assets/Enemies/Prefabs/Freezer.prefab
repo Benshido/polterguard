@@ -159,7 +159,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5598299076387773879}
-  m_Material: {fileID: 13400000, guid: 2e3e3d861572e394e8e486b3f6e62572, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -213,10 +213,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  alertedTimer: 5
+  attacks:
+  - name: Door Slam
+    animationIndex: 0
+    range: 2.5
+    damage: 1
+    maxAmmo: 0
+    reloadTime: 0
+    hasInfiniteAmmo: 1
+    reloadMaxAmmo: 0
+    Projectile: {fileID: 0}
+    projectileSpeed: 2
+  - name: Icicle Shot
+    animationIndex: 1
+    range: 10
+    damage: 2
+    maxAmmo: 2
+    reloadTime: 8
+    hasInfiniteAmmo: 0
+    reloadMaxAmmo: 1
+    Projectile: {fileID: 7497697949648755102, guid: e95dce22857e5fe4ab2080b0df99bc15,
+      type: 3}
+    projectileSpeed: 20
   baseHearingRange: 2
   hearingAlertedStateIncrease: 8
   hearingRange: 0
-  alertedTimer: 5
   baseVisionRange: 10
   visionAlertedStateIncrease: 5
   visionRange: 0
@@ -224,6 +246,9 @@ MonoBehaviour:
   ObstructionLayers:
     serializedVersion: 2
     m_Bits: 1
+  AttackMask:
+    serializedVersion: 2
+    m_Bits: 9
 --- !u!114 &5598299076387773872
 MonoBehaviour:
   m_ObjectHideFlags: 0
