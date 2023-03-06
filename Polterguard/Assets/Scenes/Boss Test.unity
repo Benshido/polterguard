@@ -405,6 +405,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basement
       objectReference: {fileID: 0}
+    - target: {fileID: 4271505538251091028, guid: 2a689b40c6434bc468bb2cba63a678e0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9104218559382118210, guid: 2a689b40c6434bc468bb2cba63a678e0,
         type: 3}
       propertyPath: m_LocalPosition.x
