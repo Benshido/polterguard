@@ -112,7 +112,7 @@ MonoBehaviour:
   attacks:
   - name: Door Slam
     animationIndex: 0
-    range: 2.5
+    range: 2.1
     damage: 1
     maxAmmo: 0
     reloadTime: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   visionAngle: 44
   ObstructionLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 129
   AttackMask:
     serializedVersion: 2
     m_Bits: 9

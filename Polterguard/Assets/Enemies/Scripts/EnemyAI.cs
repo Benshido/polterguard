@@ -76,7 +76,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     Attack();
                 }
-                else ChaseTarget();
+                else if(distanceToTarg <= hearingRange || HasVisualOnPlayer()) ChaseTarget();
             }
             else anim.SetTrigger("Idle");
         }
@@ -88,9 +88,11 @@ public class EnemyAI : MonoBehaviour
         if (overlap.Contains(target.gameObject.GetComponentInChildren<Collider>()))
         {
             Vector3 dirToTarg = (target.position - transform.position);
-            if ((Vector3.Angle(transform.position, dirToTarg) - transform.eulerAngles.y) < visionAngle &&
+
+            if (Vector3.Angle(dirToTarg, transform.forward) < visionAngle &&
                 !Physics.Raycast(transform.position, dirToTarg, distanceToTarg, ObstructionLayers))
             {
+                Debug.DrawRay(transform.position, dirToTarg, Color.red, 0.5f);
                 return true;
             }
         }
