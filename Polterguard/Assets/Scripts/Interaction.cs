@@ -10,13 +10,17 @@ public class Interaction : MonoBehaviour
     public bool Interacted = false;
     public GameObject InteractText;
 
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (this.enabled == true)
         {
-            Debug.Log("touch");
-            interactive = 1;
-            InteractText.SetActive(true);
+            if (other.gameObject.tag == "Player")
+            {
+                Debug.Log("touch");
+                interactive = 1;
+                InteractText.SetActive(true);
+            }
         }
     }
 

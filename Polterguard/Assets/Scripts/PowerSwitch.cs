@@ -6,6 +6,8 @@ public class PowerSwitch : MonoBehaviour
 {
     public bool Interacted;
     public Animator Animator;
+    public GameObject Switch;
+    public GameObject InteractText;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,8 @@ public class PowerSwitch : MonoBehaviour
         if (Interacted == true)
         {
             Animator.enabled = true;
+            Switch.GetComponent<Interaction>().enabled = false;
+            InteractText.SetActive(false);
         }
     }
 }
