@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1361656025927997659}
   - component: {fileID: 8624769364650414667}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: ToastProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7497697949648755102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.145072, y: 1.3965335, z: 12.55128}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7497697949648755102}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 7925967922220520850, guid: f709e3a50d491cf41bf75974a0a8b0ad, type: 3}
 --- !u!23 &8624769364650414667
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +61,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: cb93d308de1aa3140a99344e0f7b58f7, type: 2}
+  - {fileID: 2100000, guid: 06c9e852eaa9aca46bb2d4419cca40db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
