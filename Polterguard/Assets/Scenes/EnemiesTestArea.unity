@@ -915,26 +915,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 6633812742000954289}
-    - target: {fileID: 5598299076387773873, guid: a7bfac5fd3dd9ae4e8c963fc275b1db7,
-        type: 3}
-      propertyPath: mask.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5598299076387773873, guid: a7bfac5fd3dd9ae4e8c963fc275b1db7,
-        type: 3}
-      propertyPath: attacks.Array.data[1].hasInfiniteAmmo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5598299076387773873, guid: a7bfac5fd3dd9ae4e8c963fc275b1db7,
-        type: 3}
-      propertyPath: attacks.Array.data[1].projectileRange
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5598299076387773873, guid: a7bfac5fd3dd9ae4e8c963fc275b1db7,
-        type: 3}
-      propertyPath: attacks.Array.data[1].projectileSpeed
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 5598299076387773879, guid: a7bfac5fd3dd9ae4e8c963fc275b1db7,
         type: 3}
       propertyPath: m_Name
@@ -994,6 +974,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598299076387773886, guid: a7bfac5fd3dd9ae4e8c963fc275b1db7,
+        type: 3}
+      propertyPath: m_BaseOffset
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -129,7 +129,17 @@ public class EnemyAI : MonoBehaviour
     /// <summary>
     /// Set an event triger on the animation and put this method in there
     /// </summary>
-    public void UseAmmo()
+    public void UseAmmoNoProjectile()
+    {
+        var atk = attacks[currentAttackType];
+        if (atk.Ammo > 0 || atk.HasInfiniteAmmo)
+        {
+            atk.UseAmmo();
+            StartCoroutine(atk.Reload());
+        }
+    }
+
+    public void UseAmmoWithProjectile()
     {
         var atk = attacks[currentAttackType];
         if (atk.Ammo > 0 || atk.HasInfiniteAmmo)
