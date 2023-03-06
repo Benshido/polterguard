@@ -47,6 +47,8 @@ public class EnemyAI : MonoBehaviour
         myLife = GetComponent<EnemyHP>();
         anim = GetComponentInChildren<Animator>();
 
+        if (target == null) target = GameObject.FindFirstObjectByType<PlayerHP>().transform;
+
         StopAgent();
 
         attacks.OrderByDescending(x => x.Range);
