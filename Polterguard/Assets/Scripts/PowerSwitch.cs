@@ -8,6 +8,7 @@ public class PowerSwitch : MonoBehaviour
     public Animator Animator;
     public GameObject Switch;
     public GameObject InteractText;
+    public GameObject ExitLevelTrigger;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class PowerSwitch : MonoBehaviour
             Animator.enabled = true;
             Switch.GetComponent<Interaction>().enabled = false;
             InteractText.SetActive(false);
+            ExitLevelTrigger.SetActive(true);
         }
     }
 }
