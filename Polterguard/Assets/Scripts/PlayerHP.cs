@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
 {
+    public AudioSource source;
+    public AudioClip clip;
     [SerializeField] float maxHitPoints = 100;
     [SerializeField] Slider hpSlider;
 
@@ -25,6 +27,7 @@ public class PlayerHP : MonoBehaviour
     {
         hitPoints -= damage;
         hpSlider.value = hitPoints;
+        source.PlayOneShot(clip);
         if (hitPoints <= 0)
         {
             IsAlive = false;

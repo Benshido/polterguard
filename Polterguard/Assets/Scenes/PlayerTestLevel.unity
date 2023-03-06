@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!82 &10150240 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1686064136033747401, guid: 0844acad345f34f4aaa6c2d72a2ad115,
+    type: 3}
+  m_PrefabInstance: {fileID: 5685458110820304835}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &51008150
 GameObject:
   m_ObjectHideFlags: 0
@@ -2387,16 +2393,47 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4013780387727647143, guid: 0844acad345f34f4aaa6c2d72a2ad115,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685458110133710821, guid: 0844acad345f34f4aaa6c2d72a2ad115,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: fc536bd056841a6499a0219aced68efb, type: 3}
+    - target: {fileID: 5685458110133710821, guid: 0844acad345f34f4aaa6c2d72a2ad115,
+        type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 10150240}
     - target: {fileID: 5685458110133710821, guid: 0844acad345f34f4aaa6c2d72a2ad115,
         type: 3}
       propertyPath: hpSlider
       value: 
       objectReference: {fileID: 1362655722}
+    - target: {fileID: 7104291135319334719, guid: 0844acad345f34f4aaa6c2d72a2ad115,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b4decab3c5710248935ae2e469f7ee0, type: 3}
+    - target: {fileID: 7104291135319334719, guid: 0844acad345f34f4aaa6c2d72a2ad115,
+        type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 5685458110820304836}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0844acad345f34f4aaa6c2d72a2ad115, type: 3}
+--- !u!82 &5685458110820304836 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3307476658657935826, guid: 0844acad345f34f4aaa6c2d72a2ad115,
+    type: 3}
+  m_PrefabInstance: {fileID: 5685458110820304835}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7245369313374107661 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3056386172677996494, guid: 0844acad345f34f4aaa6c2d72a2ad115,
