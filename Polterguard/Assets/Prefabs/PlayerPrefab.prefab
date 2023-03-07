@@ -32,7 +32,7 @@ Transform:
   - {fileID: 6281961297090808462}
   - {fileID: 9049041451165221404}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2803449566435707118
 GameObject:
@@ -182,7 +182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4013780387727647140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.210217, y: 10.447286, z: -23.948788}
+  m_LocalPosition: {x: -29.231054, y: 12.723668, z: 4.9192123}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -404,8 +404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afda6fea9ba25b4ea33a045e18daa55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 0}
-  clip: {fileID: 0}
+  source: {fileID: 3307476658657935826}
+  clip: {fileID: 8300000, guid: 1b4decab3c5710248935ae2e469f7ee0, type: 3}
   bullet: {fileID: 9174489101547518631, guid: 216d02f8648dfdc4bb23358977a5a23b, type: 3}
   spawnPoint: {fileID: 7409845406615844969}
   fireSpeed: 20
@@ -930,6 +930,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868ea033c499fda4ab2815ef13a66ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuManager: {fileID: 0}
+  source: {fileID: 1686064136033747401}
+  clip: {fileID: 8300000, guid: fc536bd056841a6499a0219aced68efb, type: 3}
+  deathClip: {fileID: 8300000, guid: e8e16341aa9cda445aca5f63b9208c63, type: 3}
   maxHitPoints: 100
   hpSlider: {fileID: 0}
 --- !u!54 &5685458110133710822
