@@ -34,7 +34,6 @@ public class PlayerHP : MonoBehaviour
             source.PlayOneShot(deathClip);
             IsAlive = false;
             StartCoroutine(WaitForSound(deathClip));
-            //CallDeathScreen();
         }
         else
             source.PlayOneShot(clip);

@@ -8,8 +8,8 @@ public class BulletHit : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Hit");
-            other.GetComponent<MeshRenderer>().material.color = Color.red;
+            other.GetComponent<EnemyHP>().TakeAttack(20);
         }
+        Destroy(gameObject);
     }
 }
