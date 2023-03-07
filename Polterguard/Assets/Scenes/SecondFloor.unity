@@ -658,9 +658,10 @@ GameObject:
   - component: {fileID: 135476835}
   - component: {fileID: 135476834}
   - component: {fileID: 135476833}
+  - component: {fileID: 135476836}
   m_Layer: 0
   m_Name: LightBlue
-  m_TagString: Untagged
+  m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -674,7 +675,7 @@ Transform:
   m_GameObject: {fileID: 135476831}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.635, y: 0.35, z: 1}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.58, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377629540}
@@ -751,6 +752,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135476831}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &135476836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135476831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21aaa5058476ed4dbda9b3c2d90dafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzle: {fileID: 1377629539}
 --- !u!1 &162272651
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,9 +1204,10 @@ GameObject:
   - component: {fileID: 265084204}
   - component: {fileID: 265084203}
   - component: {fileID: 265084202}
+  - component: {fileID: 265084205}
   m_Layer: 0
   m_Name: Purple
-  m_TagString: Untagged
+  m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1206,7 +1221,7 @@ Transform:
   m_GameObject: {fileID: 265084200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.635, y: 0.35, z: 0.8}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.58, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377629540}
@@ -1283,6 +1298,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 265084200}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &265084205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265084200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21aaa5058476ed4dbda9b3c2d90dafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzle: {fileID: 1377629539}
 --- !u!1 &318363637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,9 +1323,10 @@ GameObject:
   - component: {fileID: 318363641}
   - component: {fileID: 318363640}
   - component: {fileID: 318363639}
+  - component: {fileID: 318363642}
   m_Layer: 0
   m_Name: Green
-  m_TagString: Untagged
+  m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1311,7 +1340,7 @@ Transform:
   m_GameObject: {fileID: 318363637}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.635, y: 0.125, z: 0.8}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.58, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377629540}
@@ -1388,6 +1417,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318363637}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &318363642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318363637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21aaa5058476ed4dbda9b3c2d90dafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzle: {fileID: 1377629539}
 --- !u!1 &337470324
 GameObject:
   m_ObjectHideFlags: 0
@@ -2549,9 +2591,10 @@ GameObject:
   - component: {fileID: 553213930}
   - component: {fileID: 553213929}
   - component: {fileID: 553213928}
+  - component: {fileID: 553213931}
   m_Layer: 0
   m_Name: DarkGreen
-  m_TagString: Untagged
+  m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2565,7 +2608,7 @@ Transform:
   m_GameObject: {fileID: 553213926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.635, y: 0.125, z: 0.6}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.58, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377629540}
@@ -2642,6 +2685,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553213926}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &553213931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553213926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21aaa5058476ed4dbda9b3c2d90dafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzle: {fileID: 1377629539}
 --- !u!1 &568715266
 GameObject:
   m_ObjectHideFlags: 0
@@ -3870,7 +3926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &937603941
 Transform:
   m_ObjectHideFlags: 0
@@ -3922,9 +3978,10 @@ GameObject:
   - component: {fileID: 940313413}
   - component: {fileID: 940313412}
   - component: {fileID: 940313411}
+  - component: {fileID: 940313414}
   m_Layer: 0
   m_Name: Pink
-  m_TagString: Untagged
+  m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3938,7 +3995,7 @@ Transform:
   m_GameObject: {fileID: 940313409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.635, y: 0.125, z: 1}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.58, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377629540}
@@ -4015,6 +4072,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940313409}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &940313414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940313409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21aaa5058476ed4dbda9b3c2d90dafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzle: {fileID: 1377629539}
 --- !u!1001 &942416748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4199,9 +4269,10 @@ GameObject:
   - component: {fileID: 988874856}
   - component: {fileID: 988874855}
   - component: {fileID: 988874854}
+  - component: {fileID: 988874857}
   m_Layer: 0
   m_Name: Orange
-  m_TagString: Untagged
+  m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4215,7 +4286,7 @@ Transform:
   m_GameObject: {fileID: 988874852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.635, y: -0.1, z: 0.8}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.58, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377629540}
@@ -4292,6 +4363,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988874852}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &988874857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988874852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21aaa5058476ed4dbda9b3c2d90dafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzle: {fileID: 1377629539}
 --- !u!1001 &1023717728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5597,9 +5681,10 @@ GameObject:
   - component: {fileID: 1331166373}
   - component: {fileID: 1331166372}
   - component: {fileID: 1331166371}
+  - component: {fileID: 1331166374}
   m_Layer: 0
   m_Name: Red
-  m_TagString: Untagged
+  m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5613,7 +5698,7 @@ Transform:
   m_GameObject: {fileID: 1331166369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.635, y: -0.1, z: 0.6}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.58, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377629540}
@@ -5690,6 +5775,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331166369}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1331166374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331166369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21aaa5058476ed4dbda9b3c2d90dafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzle: {fileID: 1377629539}
 --- !u!1001 &1352666536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5954,6 +6052,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1377629540}
+  - component: {fileID: 1377629541}
   m_Layer: 0
   m_Name: Puzzle
   m_TagString: Untagged
@@ -5969,7 +6068,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377629539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5985,6 +6084,18 @@ Transform:
   m_Father: {fileID: 1420832281}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1377629541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377629539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d810eff9e3b5914382ca37ab0b9845c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1420832280
 GameObject:
   m_ObjectHideFlags: 0
@@ -6586,9 +6697,10 @@ GameObject:
   - component: {fileID: 1514015797}
   - component: {fileID: 1514015796}
   - component: {fileID: 1514015795}
+  - component: {fileID: 1514015798}
   m_Layer: 0
   m_Name: Yellow
-  m_TagString: Untagged
+  m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6602,7 +6714,7 @@ Transform:
   m_GameObject: {fileID: 1514015793}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.635, y: -0.1, z: 1}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.58, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377629540}
@@ -6679,6 +6791,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514015793}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1514015798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514015793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21aaa5058476ed4dbda9b3c2d90dafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzle: {fileID: 1377629539}
 --- !u!1 &1539630544
 GameObject:
   m_ObjectHideFlags: 0
@@ -7548,9 +7673,10 @@ GameObject:
   - component: {fileID: 1690023543}
   - component: {fileID: 1690023542}
   - component: {fileID: 1690023541}
+  - component: {fileID: 1690023544}
   m_Layer: 0
   m_Name: Blue
-  m_TagString: Untagged
+  m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7564,7 +7690,7 @@ Transform:
   m_GameObject: {fileID: 1690023539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.635, y: 0.35, z: 0.6}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.58, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377629540}
@@ -7641,6 +7767,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690023539}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1690023544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690023539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21aaa5058476ed4dbda9b3c2d90dafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzle: {fileID: 1377629539}
 --- !u!1 &1716915716
 GameObject:
   m_ObjectHideFlags: 0
@@ -8764,6 +8903,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4013780387727647137, guid: 0844acad345f34f4aaa6c2d72a2ad115,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22.210217
       objectReference: {fileID: 0}
     - target: {fileID: 4013780387727647137, guid: 0844acad345f34f4aaa6c2d72a2ad115,
         type: 3}
