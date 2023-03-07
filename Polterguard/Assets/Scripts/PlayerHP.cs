@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
 {
+    public GameObject menuManager;
     public AudioSource source;
     public AudioClip clip;
+    public AudioClip deathClip;
     [SerializeField] float maxHitPoints = 100;
     [SerializeField] Slider hpSlider;
 
@@ -27,13 +29,15 @@ public class PlayerHP : MonoBehaviour
     {
         hitPoints -= damage;
         hpSlider.value = hitPoints;
-        source.PlayOneShot(clip);
         if (hitPoints <= 0)
         {
+            source.PlayOneShot(deathClip);
             IsAlive = false;
-            string currentSceneName = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(currentSceneName);
+            StartCoroutine(WaitForSound(deathClip));
+            //CallDeathScreen();
         }
+        else
+            source.PlayOneShot(clip);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -44,5 +48,16 @@ public class PlayerHP : MonoBehaviour
             TakeDamage(20f);
             //collision.gameObject.GetComponent<PlayerHP>().TakeDamage(20f);
         }
+    }
+
+    public void CallDeathScreen()
+    {
+        menuManager.GetComponent<PauseMenu>().DeathScreen(IsAlive);
+    }
+
+    public IEnumerator WaitForSound(AudioClip playedClip)
+    {
+        yield return new WaitUntil(() => source.isPlaying == false);
+        CallDeathScreen();
     }
 }
