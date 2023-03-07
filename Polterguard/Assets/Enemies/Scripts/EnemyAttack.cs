@@ -20,6 +20,9 @@ public class EnemyAttack
     [SerializeField] float reloadTime = 2;
     [SerializeField] bool hasInfiniteAmmo = false;
     [SerializeField] bool reloadMaxAmmo = false;
+    [Header("Melee settings")]
+    [Tooltip("Not required")]
+    public Collider MeleeHitArea;
     [Header("Projectile settings")]
     [Tooltip("Not required")]
     public GameObject Projectile;

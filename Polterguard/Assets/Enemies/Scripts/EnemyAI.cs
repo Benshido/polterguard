@@ -92,7 +92,6 @@ public class EnemyAI : MonoBehaviour
             if (Vector3.Angle(dirToTarg, transform.forward) < visionAngle &&
                 !Physics.Raycast(transform.position, dirToTarg, distanceToTarg, ObstructionLayers))
             {
-                Debug.DrawRay(transform.position, dirToTarg, Color.red, 0.5f);
                 return true;
             }
         }
@@ -140,6 +139,7 @@ public class EnemyAI : MonoBehaviour
         {
             atk.UseAmmo();
             StartCoroutine(atk.Reload());
+            HitboxMeleeAtk(atk);
         }
     }
 
@@ -168,6 +168,29 @@ public class EnemyAI : MonoBehaviour
             projectile.range = atk.Range;
             projectile.target = target.position;
             projectile.mask = AttackMask;
+        }
+    }
+
+    private void HitboxMeleeAtk(EnemyAttack atk)
+    {
+        if (atk.MeleeHitArea != null)
+        {
+            atk.MeleeHitArea.enabled = true;
+        }
+    }
+    public void MeleeHitboxOff()
+    {
+        var atk = attacks[currentAttackType];
+        if (atk.MeleeHitArea != null)
+        {
+            atk.MeleeHitArea.enabled = false;
+            var melee = atk.MeleeHitArea.GetComponent<EnemyMeleeAtk>();
+            if (melee == null)
+            {
+                melee = atk.MeleeHitArea.AddComponent<EnemyMeleeAtk>();
+            }
+            melee.damage = atk.Damage;
+            melee.ClearHPObjectsHit();
         }
     }
 
