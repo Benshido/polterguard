@@ -15,7 +15,6 @@ public class SkeletonCutscene : MonoBehaviour
         {
             if (other.gameObject.tag == "Player")
             {
-                Debug.Log("enter");
                 Player.GetComponent<FirstPersonController>().enabled = false;
                 PlayerCamera.SetActive(false);
                 CutsceneCamera.SetActive(true);

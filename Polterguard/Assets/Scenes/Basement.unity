@@ -6973,7 +6973,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: -400310251153081761, guid: bf2b4d69e474c8844a000eb8e0454d62, type: 3}
   - {fileID: -1580535799172915004, guid: bf2b4d69e474c8844a000eb8e0454d62, type: 3}
-  - {fileID: 2100000, guid: 1c99d04706d719d4a957b533f24bd8a1, type: 2}
+  - {fileID: 2100000, guid: dd73ea2cd36283f4392313db69b1a919, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14684,6 +14684,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4871835360681041764}
   - component: {fileID: 6872151913539496993}
+  - component: {fileID: 6872151913539496994}
   m_Layer: 0
   m_Name: Tube light (1)
   m_TagString: Untagged
@@ -14711,6 +14712,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &6872151913539496994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872151913539496992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024b8ee92d95e864fbe9ff29844d8b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Interacted: 0
+  Animator: {fileID: 6872151913539496993}
+  Animation: {fileID: 0}
+  PowerSwitch: {fileID: 1079666515803397974}
 --- !u!4 &6894312419666380284
 Transform:
   m_ObjectHideFlags: 0
@@ -17106,6 +17123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8012211508181277013}
   - component: {fileID: 8355270605967157778}
+  - component: {fileID: 8355270605967157779}
   m_Layer: 0
   m_Name: Tube light
   m_TagString: Untagged
@@ -17133,6 +17151,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &8355270605967157779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8355270605967157777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024b8ee92d95e864fbe9ff29844d8b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Interacted: 0
+  Animator: {fileID: 8355270605967157778}
+  Animation: {fileID: 0}
+  PowerSwitch: {fileID: 1079666515803397974}
 --- !u!4 &8386248523722123528
 Transform:
   m_ObjectHideFlags: 0

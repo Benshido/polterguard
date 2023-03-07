@@ -17,7 +17,6 @@ public class Interaction : MonoBehaviour
         {
             if (other.gameObject.tag == "Player")
             {
-                Debug.Log("touch");
                 interactive = 1;
                 InteractText.SetActive(true);
             }
@@ -45,7 +44,6 @@ public class Interaction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Debug.Log("interacted");
                 Interacted = true;
             }
         }
