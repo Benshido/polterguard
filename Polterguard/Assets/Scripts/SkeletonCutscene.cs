@@ -9,6 +9,7 @@ public class SkeletonCutscene : MonoBehaviour
     public GameObject Player;
     public GameObject PlayerCamera;
     public GameObject CutsceneCamera;
+    public GameObject Jumpscare;
     private void OnTriggerEnter(Collider other)
     {
         if (this.enabled == true)
@@ -19,6 +20,7 @@ public class SkeletonCutscene : MonoBehaviour
                 PlayerCamera.SetActive(false);
                 CutsceneCamera.SetActive(true);
                 StartCoroutine(EndCutscene());
+                StartCoroutine(StartJumpscare());
             }
         }
     }
@@ -30,6 +32,12 @@ public class SkeletonCutscene : MonoBehaviour
         PlayerCamera.SetActive(true);
         CutsceneCamera.SetActive(false);
         this.gameObject.SetActive(false);
+    }
+
+    IEnumerator StartJumpscare()
+    {
+        yield return new WaitForSeconds(2);
+        Jumpscare.SetActive(true);
     }
 
     // Start is called before the first frame update
