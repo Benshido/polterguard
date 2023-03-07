@@ -7,6 +7,7 @@ public class Interaction : MonoBehaviour
     // Start is called before the first frame update
 
     public float interactive = 0;
+    public bool Interacted = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -38,6 +39,7 @@ public class Interaction : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log("interacted");
+                Interacted = true;
             }
         }
     }
