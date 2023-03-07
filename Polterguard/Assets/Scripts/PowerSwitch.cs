@@ -9,6 +9,8 @@ public class PowerSwitch : MonoBehaviour
     public GameObject Switch;
     public GameObject InteractText;
     public GameObject ExitLevelTrigger;
+    public GameObject SoundEffect;
+    public GameObject LightsNoise;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,8 @@ public class PowerSwitch : MonoBehaviour
             Switch.GetComponent<Interaction>().enabled = false;
             InteractText.SetActive(false);
             ExitLevelTrigger.SetActive(true);
+            SoundEffect.SetActive(true);
+            LightsNoise.SetActive(false);
         }
     }
 }
