@@ -9,6 +9,7 @@ public class Interaction : MonoBehaviour
     public float interactive = 0;
     public bool Interacted = false;
     public GameObject InteractText;
+    public Animator animator;
 
 
     private void OnTriggerEnter(Collider other)
@@ -44,8 +45,10 @@ public class Interaction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Debug.Log("interacted");
+                animator.enabled = true;
                 Interacted = true;
+                InteractText.SetActive(false);
+                Destroy(gameObject);
             }
         }
     }
