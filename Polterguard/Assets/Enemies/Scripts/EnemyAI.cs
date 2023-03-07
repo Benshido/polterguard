@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -47,7 +48,7 @@ public class EnemyAI : MonoBehaviour
         myLife = GetComponent<EnemyHP>();
         anim = GetComponentInChildren<Animator>();
 
-        if (target == null) target = GameObject.FindFirstObjectByType<PlayerHP>().transform;
+        if (target == null) target = FindFirstObjectByType<PlayerHP>().transform;
 
         StopAgent();
 
@@ -176,19 +177,21 @@ public class EnemyAI : MonoBehaviour
         if (atk.MeleeHitArea != null)
         {
             atk.MeleeHitArea.enabled = true;
-        }
-    }
-    public void MeleeHitboxOff()
-    {
-        var atk = attacks[currentAttackType];
-        if (atk.MeleeHitArea != null)
-        {
-            atk.MeleeHitArea.enabled = false;
             var melee = atk.MeleeHitArea.GetComponent<EnemyMeleeAtk>();
             if (melee == null)
             {
                 melee = atk.MeleeHitArea.AddComponent<EnemyMeleeAtk>();
+                melee.damage = atk.Damage;
             }
+        }
+    }
+    public void MeleeHitboxOff(int attackType)
+    {
+        var atk = attacks[attackType];
+        if (atk.MeleeHitArea != null)
+        {
+            atk.MeleeHitArea.enabled = false;
+            var melee = atk.MeleeHitArea.GetComponent<EnemyMeleeAtk>();
             melee.damage = atk.Damage;
             melee.ClearHPObjectsHit();
         }

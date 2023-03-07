@@ -20,6 +20,7 @@ public class EnemyAttack
     [SerializeField] float reloadTime = 2;
     [SerializeField] bool hasInfiniteAmmo = false;
     [SerializeField] bool reloadMaxAmmo = false;
+    [SerializeField] bool canNotReload = false;
     [Header("Melee settings")]
     [Tooltip("Not required")]
     public Collider MeleeHitArea;
@@ -49,7 +50,7 @@ public class EnemyAttack
 
     public IEnumerator Reload()
     {
-        if (!reloading)
+        if (!reloading && !canNotReload)
             if (!reloadMaxAmmo && Ammo < maxAmmo || reloadMaxAmmo && Ammo == 0)
             {
                 reloading = true;

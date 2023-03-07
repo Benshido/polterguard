@@ -118,6 +118,8 @@ MonoBehaviour:
     reloadTime: 2
     hasInfiniteAmmo: 0
     reloadMaxAmmo: 0
+    canNotReload: 0
+    MeleeHitArea: {fileID: 0}
     Projectile: {fileID: 7497697949648755102, guid: 7fe326f1ccf123d48af31b94a4a25491,
       type: 3}
     projectileSpeed: 10
