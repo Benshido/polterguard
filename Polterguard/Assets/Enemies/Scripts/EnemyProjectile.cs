@@ -18,6 +18,7 @@ public class EnemyProjectile : MonoBehaviour
         startPoint = transform.position;
         target.y = transform.position.y;
         oldPosition = transform.position;
+        range += 1;
     }
 
     // Update is called once per frame
@@ -26,10 +27,12 @@ public class EnemyProjectile : MonoBehaviour
         //Move projectile forward to maximum range
         Ray ray = new(startPoint, target - startPoint);
         var newPos = Vector3.MoveTowards(transform.position, ray.GetPoint(range), Time.deltaTime * speed);
+
+        Debug.DrawRay(startPoint, newPos - startPoint, Color.red, 0.5f);
         transform.position = newPos;
 
         //If the object reaches the max range, destroy
-        if(transform.position == ray.GetPoint(range))
+        if (transform.position == ray.GetPoint(range))
         {
             //could replace this with a fade effect and destroy etc.
             Destroy(gameObject);
@@ -39,11 +42,9 @@ public class EnemyProjectile : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.position - oldPosition, out hit, Vector3.Distance(transform.position, oldPosition), mask))
         {
-            //Put the damage to hit objects (player) here
-            //Example:
-            //  var otherHP = hit.collider.gameObject.GetComponent<PlayerHP>()
-            //  if (otherHP != null) otherHP.TakeAttack(damage);
-            
+            var otherHP = hit.collider.gameObject.GetComponent<PlayerHP>();
+            if (otherHP != null) otherHP.TakeDamage(damage);
+
             //Could replace this with an explode and destroy effect etc.
             Destroy(gameObject);
         }
