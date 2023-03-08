@@ -8,13 +8,18 @@ public class Interaction : MonoBehaviour
 
     public float interactive = 0;
     public bool Interacted = false;
+    public GameObject InteractText;
+
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (this.enabled == true)
         {
-            Debug.Log("touch");
-            interactive = 1;
+            if (other.gameObject.tag == "Player")
+            {
+                interactive = 1;
+                InteractText.SetActive(true);
+            }
         }
     }
 
@@ -23,6 +28,7 @@ public class Interaction : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             interactive = 0;
+            InteractText.SetActive(false);
         }
     }
 
@@ -38,7 +44,6 @@ public class Interaction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Debug.Log("interacted");
                 Interacted = true;
             }
         }
