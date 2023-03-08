@@ -245,16 +245,20 @@ public class EnemyAI : MonoBehaviour
     /// <returns></returns>
     private IEnumerator AlertedStateTimer()
     {
-        provokedCount++;
-        yield return new WaitUntil(() => Provoked == false);
-        agent.velocity = Vector3.zero;
-        agent.isStopped = true;
-        yield return new WaitForSeconds(alertedTimer);
-        if (provokedCount == 1)
+        if (provokedCount <= 0)
         {
-            provokedCount = 0;
-            hearingRange = baseHearingRange;
-            visionRange = baseVisionRange;
+            provokedCount++;
+            yield return new WaitUntil(() => Provoked == false);
+            provokedCount--;
+            agent.velocity = Vector3.zero;
+            agent.isStopped = true;
+            yield return new WaitForSeconds(alertedTimer);
+
+            if (provokedCount == 0)
+            {
+                hearingRange = baseHearingRange;
+                visionRange = baseVisionRange;
+            }
         }
     }
 }
