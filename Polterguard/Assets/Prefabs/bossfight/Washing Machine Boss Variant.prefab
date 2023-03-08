@@ -68,7 +68,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Washing Machine Boss Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2223639932434330405, guid: 273f04e7d2d01084e88ab105b6402332, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
