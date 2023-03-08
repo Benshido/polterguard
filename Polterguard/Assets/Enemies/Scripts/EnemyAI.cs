@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -47,6 +48,8 @@ public class EnemyAI : MonoBehaviour
         myLife = GetComponent<EnemyHP>();
         anim = GetComponentInChildren<Animator>();
 
+        if (target == null) target = FindFirstObjectByType<PlayerHP>().transform;
+
         StopAgent();
 
         attacks.OrderByDescending(x => x.Range);
@@ -74,7 +77,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     Attack();
                 }
-                else ChaseTarget();
+                else if(distanceToTarg <= hearingRange || HasVisualOnPlayer()) ChaseTarget();
             }
             else anim.SetTrigger("Idle");
         }
@@ -86,7 +89,8 @@ public class EnemyAI : MonoBehaviour
         if (overlap.Contains(target.gameObject.GetComponentInChildren<Collider>()))
         {
             Vector3 dirToTarg = (target.position - transform.position);
-            if ((Vector3.Angle(transform.position, dirToTarg) - transform.eulerAngles.y) < visionAngle &&
+
+            if (Vector3.Angle(dirToTarg, transform.forward) < visionAngle &&
                 !Physics.Raycast(transform.position, dirToTarg, distanceToTarg, ObstructionLayers))
             {
                 return true;
@@ -136,6 +140,7 @@ public class EnemyAI : MonoBehaviour
         {
             atk.UseAmmo();
             StartCoroutine(atk.Reload());
+            HitboxMeleeAtk(atk);
         }
     }
 
@@ -164,6 +169,31 @@ public class EnemyAI : MonoBehaviour
             projectile.range = atk.Range;
             projectile.target = target.position;
             projectile.mask = AttackMask;
+        }
+    }
+
+    private void HitboxMeleeAtk(EnemyAttack atk)
+    {
+        if (atk.MeleeHitArea != null)
+        {
+            atk.MeleeHitArea.enabled = true;
+            var melee = atk.MeleeHitArea.GetComponent<EnemyMeleeAtk>();
+            if (melee == null)
+            {
+                melee = atk.MeleeHitArea.AddComponent<EnemyMeleeAtk>();
+                melee.damage = atk.Damage;
+            }
+        }
+    }
+    public void MeleeHitboxOff(int attackType)
+    {
+        var atk = attacks[attackType];
+        if (atk.MeleeHitArea != null)
+        {
+            atk.MeleeHitArea.enabled = false;
+            var melee = atk.MeleeHitArea.GetComponent<EnemyMeleeAtk>();
+            melee.damage = atk.Damage;
+            melee.ClearHPObjectsHit();
         }
     }
 
@@ -215,16 +245,20 @@ public class EnemyAI : MonoBehaviour
     /// <returns></returns>
     private IEnumerator AlertedStateTimer()
     {
-        provokedCount++;
-        yield return new WaitUntil(() => Provoked == false);
-        agent.velocity = Vector3.zero;
-        agent.isStopped = true;
-        yield return new WaitForSeconds(alertedTimer);
-        if (provokedCount == 1)
+        if (provokedCount <= 0)
         {
-            provokedCount = 0;
-            hearingRange = baseHearingRange;
-            visionRange = baseVisionRange;
+            provokedCount++;
+            yield return new WaitUntil(() => Provoked == false);
+            provokedCount--;
+            agent.velocity = Vector3.zero;
+            agent.isStopped = true;
+            yield return new WaitForSeconds(alertedTimer);
+
+            if (provokedCount == 0)
+            {
+                hearingRange = baseHearingRange;
+                visionRange = baseVisionRange;
+            }
         }
     }
 }
