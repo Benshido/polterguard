@@ -4,23 +4,27 @@ using UnityEngine;
 
 public class SecondFloorPuzzleManager : MonoBehaviour
 {
+    public GameObject Access;
+    public GameObject NoAccess;
     List<string> colorSolution = new List<string>();
     Transform parentTransform;
     int solution = 0;
-    bool test = false;
+    bool fourAttempts = false;
 
     // Start is called before the first frame update
     void Start()
     {
         solution = 0;
+        NoAccess.SetActive(true);
+        Access.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (colorSolution.Count >= 4 && !test)
+        if (colorSolution.Count >= 4 && !fourAttempts)
         {
-            test = true;
+            fourAttempts = true;
             Debug.Log("4 inactive");
             CheckSolution();
         }
@@ -49,12 +53,16 @@ public class SecondFloorPuzzleManager : MonoBehaviour
         if (solution == 4)
         {
             Debug.Log("WELL DONE!");
+            NoAccess.SetActive(false);
+            Access.SetActive(true);
+            gameObject.SetActive(false);
         }
         else
         {
             Debug.Log("INCORRECT CODE" + solution);
             solution = 0;
             colorSolution.Clear();
+            fourAttempts = false;
 
             for (int i = 0; i < parentTransform.childCount; i++)
             {
