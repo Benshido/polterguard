@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 273f04e7d2d01084e88ab105b6402332,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 273f04e7d2d01084e88ab105b6402332,
         type: 3}
@@ -66,7 +66,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 273f04e7d2d01084e88ab105b6402332,
         type: 3}
       propertyPath: m_Name
-      value: Washing Machine Boss
+      value: Washing Machine Boss Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -76,7 +76,46 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 451151158}
+    - targetCorrespondingSourceObject: {fileID: -6359913129653182301, guid: 273f04e7d2d01084e88ab105b6402332,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5014693679446403663}
+    - targetCorrespondingSourceObject: {fileID: -6359913129653182301, guid: 273f04e7d2d01084e88ab105b6402332,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6748067171737252899}
+    - targetCorrespondingSourceObject: {fileID: 6695278151834525240, guid: 273f04e7d2d01084e88ab105b6402332,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 566558345019326285}
   m_SourcePrefab: {fileID: 100100000, guid: 273f04e7d2d01084e88ab105b6402332, type: 3}
+--- !u!1 &1430173295657014299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6695278151834525240, guid: 273f04e7d2d01084e88ab105b6402332,
+    type: 3}
+  m_PrefabInstance: {fileID: 5706789744862890531}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &566558345019326285
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430173295657014299}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0064357915, y: 0.0064357915, z: 0.0017380662}
+  m_Center: {x: -0.000000014895376, y: 9.36439e-10, z: -0.00012893109}
 --- !u!1 &4896537426138773362 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 273f04e7d2d01084e88ab105b6402332,
@@ -103,3 +142,51 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!1 &7534411937913301632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6359913129653182301, guid: 273f04e7d2d01084e88ab105b6402332,
+    type: 3}
+  m_PrefabInstance: {fileID: 5706789744862890531}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5014693679446403663
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534411937913301632}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.012, y: 0.011999997, z: 0.034954276}
+  m_Center: {x: -0.000000029802322, y: -2.83846e-18, z: 0.0036523384}
+--- !u!135 &6748067171737252899
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534411937913301632}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.004040705
+  m_Center: {x: -0.0062315953, y: -0.000078115474, z: -6.938016e-20}
