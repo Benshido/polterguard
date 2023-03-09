@@ -1,20 +1,22 @@
-using StarterAssets;
+using Mono.Cecil.Cil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interaction : MonoBehaviour
+public class InteractDoor : MonoBehaviour
 {
     // Start is called before the first frame update
 
     public float interactive = 0;
     public bool Interacted = false;
     public GameObject InteractText;
-    public Animator animator;
-    public GameObject PlayerCam;
-    public GameObject DoorCam;
-    public GameObject Player;
-    public GameObject Levelexit;
+    public GameObject Keycard1;
+    public GameObject Keycard2;
+    public GameObject Keycard3;
+    public float KeycardsCollected1;
+    public float KeycardsCollected2;
+    public float KeycardsCollected3;
+    public Animator Animator;
 
 
     private void OnTriggerEnter(Collider other)
@@ -37,37 +39,27 @@ public class Interaction : MonoBehaviour
             InteractText.SetActive(false);
         }
     }
-
+    
     void Start()
     {
-        Levelexit.SetActive(false);
+        Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        KeycardsCollected1 = Keycard1.GetComponent<InteractKeycardsFloor1>().KeycardsCollected;
+        KeycardsCollected2 = Keycard2.GetComponent<InteractKeycardsFloor1>().KeycardsCollected;
+        KeycardsCollected3 = Keycard3.GetComponent<InteractKeycardsFloor1>().KeycardsCollected;
         if (interactive == 1)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F) && KeycardsCollected1 == 1 && KeycardsCollected2 == 1 && KeycardsCollected3 == 1)
             {
-                animator.enabled = true;
                 Interacted = true;
                 InteractText.SetActive(false);
-                PlayerCam.SetActive(false);
-                DoorCam.SetActive(true);
-                Player.GetComponent<FirstPersonController>().enabled = false;
-                StartCoroutine(CameraTimer(3));
-                this.GetComponent<MeshRenderer>().enabled = false;
-                Levelexit.SetActive(true);
+                Animator.enabled = true;
+
             }
         }
-    }
-    IEnumerator CameraTimer(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        PlayerCam.SetActive(true);
-        DoorCam.SetActive(false);
-        Player.GetComponent<FirstPersonController>().enabled = true;
-        this.gameObject.SetActive(false);
     }
 }
