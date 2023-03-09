@@ -7,9 +7,14 @@ public class BulletHit : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
+            other.GetComponent<EnemyHP>().TakeAttack(20);
+
+        if (other.gameObject.tag == "Puzzle")
         {
-            Debug.Log("Hit");
-            other.GetComponent<MeshRenderer>().material.color = Color.red;
+            other.GetComponent<PuzzleCube>().CallCheckCubes();
+            other.gameObject.SetActive(false);
         }
+
+        Destroy(gameObject);
     }
 }
