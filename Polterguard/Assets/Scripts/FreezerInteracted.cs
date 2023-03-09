@@ -27,7 +27,6 @@ public class FreezerInteracted : MonoBehaviour
                 gameObject.GetComponent<EnemyAI>().enabled = true;
                 gameObject.GetComponent<EnemyHP>().enabled = true;
                 gameObject.GetComponent<NavMeshAgent>().enabled = true;
-                gameObject.GetComponent<Animator>().enabled = true;
             }
 
             switch (gameObject.name)
