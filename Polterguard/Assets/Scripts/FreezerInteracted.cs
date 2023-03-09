@@ -1,20 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class FreezerInteracted : MonoBehaviour
 {
     public bool Interacted;
-    public Animator Animator;
-    public GameObject Switch;
     public GameObject InteractText;
-    public GameObject ExitLevelTrigger;
-    public GameObject SoundEffect;
-    public GameObject LightsNoise;
     // Start is called before the first frame update
     void Start()
     {
-        Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,10 +19,32 @@ public class FreezerInteracted : MonoBehaviour
 
         if (Interacted == true)
         {
-            Animator.enabled = true;
-            Switch.GetComponent<Interaction>().enabled = false;
-            InteractText.SetActive(false);
-            SoundEffect.SetActive(true);
+            //InteractText.SetActive(false);
+
+            if (gameObject.tag == "Enemy")
+            {
+                gameObject.GetComponent<EnemyAI>().enabled = true;
+                gameObject.GetComponent<EnemyHP>().enabled = true;
+                gameObject.GetComponent<NavMeshAgent>().enabled = true;
+            }
+
+            switch (gameObject.name)
+            {
+                case "FreezerBlue":
+                    transform.GetChild(0).GetChild(1).gameObject.GetComponent<Renderer>().materials[1].color = Color.blue;
+                    break;
+                case "FreezerPink":
+                    transform.GetChild(0).GetChild(1).gameObject.GetComponent<Renderer>().materials[1].color = new Color(255, 192, 203);
+                    break;
+                case "FreezerGreen":
+                    transform.GetChild(0).GetChild(1).gameObject.GetComponent<Renderer>().materials[1].color = new Color(255, 192, 203);
+                    break;
+                case "FreezerRed":
+                    transform.GetChild(0).GetChild(1).gameObject.GetComponent<Renderer>().materials[1].color = Color.red;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
