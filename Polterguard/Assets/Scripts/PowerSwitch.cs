@@ -32,7 +32,7 @@ public class PowerSwitch : MonoBehaviour
             ExitLevelTrigger.SetActive(true);
             SoundEffect.SetActive(true);
             LightsNoise.SetActive(false);
-            CurrentObjective.GetComponent<TextMeshProUGUI>().text = "Got to Main Floor";
+            CurrentObjective.GetComponent<TextMeshProUGUI>().text = "Go to Main Floor";
         }
     }
 }
