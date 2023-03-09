@@ -18,6 +18,7 @@ public class EnemyAI : MonoBehaviour
     [Tooltip("Make sure to use correct animation transition conditions")]
     private int currentAttackType = 0;
     private bool hasAvailableAtk = false;
+    [SerializeField] bool lookAt = true;
 
     [Header("Hearing")]
     [SerializeField] public float baseHearingRange = 2f;
@@ -46,6 +47,7 @@ public class EnemyAI : MonoBehaviour
         hearingRange = baseHearingRange;
         visionRange = baseVisionRange;
         myLife = GetComponent<EnemyHP>();
+        if (myLife == null) myLife = GetComponentInChildren<EnemyHP>();
         anim = GetComponentInChildren<Animator>();
 
         if (target == null) target = FindFirstObjectByType<PlayerHP>().transform;
@@ -80,7 +82,7 @@ public class EnemyAI : MonoBehaviour
                 else if(distanceToTarg <= hearingRange || HasVisualOnPlayer()) ChaseTarget();
             }
             else anim.SetTrigger("Idle");
-        }
+        } else { Destroy(gameObject); }
     }
 
     private bool HasVisualOnPlayer()
@@ -116,9 +118,12 @@ public class EnemyAI : MonoBehaviour
     {
         if (hasAvailableAtk)
         {
-            var lookat = target.position;
-            lookat.y = transform.position.y;
-            transform.LookAt(lookat);
+            if (lookAt)
+            {
+                var lookat = target.position;
+                lookat.y = transform.position.y;
+                transform.LookAt(lookat);
+            }
 
             anim.SetBool("Attack", true);
             anim.SetInteger("AttackType", currentAttackType);
