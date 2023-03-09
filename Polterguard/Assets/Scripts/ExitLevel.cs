@@ -2,9 +2,12 @@ using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExitLevel : MonoBehaviour
 {
+    public bool collided = false;
+    public string NextLevel;
     private void OnTriggerEnter(Collider other)
     {
         if (this.enabled == true)
@@ -12,6 +15,7 @@ public class ExitLevel : MonoBehaviour
             if (other.gameObject.tag == "Player")
             {
                 Debug.Log("exit level");
+                collided = true;
             }
         }
     }
@@ -25,6 +29,12 @@ public class ExitLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (collided == true)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                SceneManager.LoadScene(NextLevel);
+            }
+        }
     }
 }
