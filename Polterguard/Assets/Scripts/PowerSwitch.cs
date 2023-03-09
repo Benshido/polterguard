@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PowerSwitch : MonoBehaviour
@@ -11,6 +12,7 @@ public class PowerSwitch : MonoBehaviour
     public GameObject ExitLevelTrigger;
     public GameObject SoundEffect;
     public GameObject LightsNoise;
+    public TMP_Text CurrentObjective;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,7 @@ public class PowerSwitch : MonoBehaviour
             ExitLevelTrigger.SetActive(true);
             SoundEffect.SetActive(true);
             LightsNoise.SetActive(false);
+            CurrentObjective.GetComponent<TextMeshProUGUI>().text = "Got to Main Floor";
         }
     }
 }
