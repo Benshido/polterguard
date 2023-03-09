@@ -13,6 +13,7 @@ public class BossAI : MonoBehaviour
     private int stateTimer = 0; //how many frames in the current state there are
     private string prevState = "unaggroed"; //last state
     [SerializeField] float meleeRange = 0f; //how far away the boss decides to melee you
+    [SerializeField] bool hasEnraged = false; //Whether or not the boss has been below 50% hp
 
     /// <summary>
     /// Those with highest range will be used first, otherwise first in list has highest priority
@@ -35,12 +36,15 @@ public class BossAI : MonoBehaviour
     [SerializeField] LayerMask ObstructionLayers;
 
     private EnemyHP myLife;
-
     private float distanceToTarg = 0;
     private NavMeshAgent agent;
     private Animator anim;
+    public GameObject meleeHitbox;
+    public GameObject CDHitbox;
+    public GameObject LaserHitbox;
 
     private int provokedCount = 0;
+    private int laserdir = 0;
     private bool Provoked = false;
 
     void Start()
@@ -123,7 +127,13 @@ public class BossAI : MonoBehaviour
                             }
                             else if (random < 4)
                             {
-                                stateTimer = 0;
+                                if (hasEnraged)
+                                {
+                                    if (random == 3){
+                                        state = "laserAttack";
+                                    }
+                                    else stateTimer = 0;
+                                }
                             }
                             else
                             {
@@ -159,7 +169,39 @@ public class BossAI : MonoBehaviour
                     //state = "idle";
                     anim.SetInteger("AttackType", 0);
                     break;
-
+                case "laserAttack":
+                    StopMoving();
+                    anim.SetBool("Attack", true);
+                    anim.SetInteger("AttackType", 3);
+                    if(stateTimer == 1)
+                    {
+                        FacePlayer();
+                        //laserdir = Random.Range(0, 2);
+                    }
+                    if(stateTimer > 55 && stateTimer < 140)
+                    {
+                        if(Vector3.Cross(transform.forward,target.position-transform.position).y > 0)
+                        {
+                            laserdir = 1;
+                        }
+                        else { laserdir = 0; }
+                        CreateLaserHitbox();
+                        if (laserdir == 0)
+                        {
+                            transform.Rotate(0, -3, 0);
+                        }
+                        else
+                        {
+                            transform.Rotate(0, 3, 0);
+                        }
+                    }
+                    break;
+                case "enrage":
+                    StopMoving();
+                    anim.SetBool("Attack", true);
+                    anim.SetInteger("AttackType", 4);
+                    hasEnraged = true;
+                    break;
 
 
                 default: Debug.Log("bad state"); break;
@@ -185,6 +227,25 @@ public class BossAI : MonoBehaviour
         }
     }
 
+    private void CreateMeleeHitbox() {
+        GameObject hitbox = Instantiate(meleeHitbox);
+        hitbox.transform.position = transform.position+transform.forward*1;
+        hitbox.transform.rotation = transform.rotation;
+    }
+    private void CreateRangedHitbox()
+    {
+        GameObject hitbox = Instantiate(CDHitbox);
+        hitbox.transform.position = transform.position + transform.forward * 1 +transform.right*-1+transform.up*3f; //ik this is bad practice but i will never use this code angain anyway
+        hitbox.transform.LookAt(target.position+Vector3.up*1);
+        //Debug.Log(hitbox.transform.rotation.eulerAngles);
+        //Debug.Log(hitbox.transform.rotation.eulerAngles);
+    }
+    private void CreateLaserHitbox()
+    {
+        GameObject hitbox = Instantiate(LaserHitbox);
+        hitbox.transform.position = transform.position + transform.forward * 0.1f+transform.up*1.3f;
+        hitbox.transform.rotation = transform.rotation;
+    }
     private void FacePlayer()
     {
         //Vector3 dirToTarg = (target.position - transform.position);
