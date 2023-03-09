@@ -14,6 +14,7 @@ public class BossAI : MonoBehaviour
     private string prevState = "unaggroed"; //last state
     [SerializeField] float meleeRange = 0f; //how far away the boss decides to melee you
     [SerializeField] bool hasEnraged = false; //Whether or not the boss has been below 50% hp
+    private float maxHP;
 
     /// <summary>
     /// Those with highest range will be used first, otherwise first in list has highest priority
@@ -46,6 +47,7 @@ public class BossAI : MonoBehaviour
     private int provokedCount = 0;
     private int laserdir = 0;
     private bool Provoked = false;
+    private bool gotmaxhp = false;
 
     void Start()
     {
@@ -72,12 +74,18 @@ public class BossAI : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (!gotmaxhp)
+        {
+            gotmaxhp= true;
+            maxHP = myLife.HitPoints;
+            Debug.Log(maxHP);
+        }
         stateTimer++;
         if(state != prevState)
         {
             stateTimer = 0;
         }
-        if ((stateTimer > 55 && stateTimer < 140) && state == "laserAttack")
+        if ((stateTimer > 55 && stateTimer < 140) && state == "laserAttack" && stateTimer%2 == 0)
         {
             if (Vector3.Cross(transform.forward, target.position - transform.position).y > 0)
             {
@@ -87,11 +95,11 @@ public class BossAI : MonoBehaviour
             CreateLaserHitbox();
             if (laserdir == 0)
             {
-                transform.Rotate(0, -1f, 0);
+                transform.Rotate(0, -2f, 0);
             }
             else
             {
-                transform.Rotate(0, 1f, 0);
+                transform.Rotate(0, 2f, 0);
             }
         }
         prevState = state;
@@ -116,9 +124,15 @@ public class BossAI : MonoBehaviour
                     anim.SetTrigger("Idle");
                     break;
                 case "idle":
+                    EnableHurtbox();
                     anim.SetTrigger("Idle");
                     anim.SetBool("Attack", false);
                     StopMoving();
+                    if((myLife.HitPoints <= maxHP / 2) && !hasEnraged)
+                    {
+                        Debug.Log("half health");
+                        state = "enrage";
+                    }
                     if (stateTimer >= 12)
                     {
                         int random = Random.Range(0, 3);
@@ -199,6 +213,7 @@ public class BossAI : MonoBehaviour
                     break;
                 case "enrage":
                     StopMoving();
+                    DisableHurtbox();
                     anim.SetBool("Attack", true);
                     anim.SetInteger("AttackType", 4);
                     hasEnraged = true;
@@ -224,8 +239,21 @@ public class BossAI : MonoBehaviour
         else {
             anim.SetBool("Alive", false);
             StopMoving();
-            Debug.Log("dood"); 
+            Debug.Log("dood");
+            DisableHurtbox();
         }
+    }
+
+    private void EnableHurtbox()
+    {
+        var hurtbox = GetComponentInChildren<SphereCollider>();
+        hurtbox.enabled = true;
+    }
+
+    private void DisableHurtbox()
+    {
+        var hurtbox = GetComponentInChildren<SphereCollider>();
+        hurtbox.enabled = false;
     }
 
     private void CreateMeleeHitbox() {
@@ -256,6 +284,10 @@ public class BossAI : MonoBehaviour
     {
         anim.SetBool("Attack", false);
         state = "idle";
+    }
+    public void performLaser()
+    {
+        state = "laserAttack";
     }
     private void StopMoving()
     {
