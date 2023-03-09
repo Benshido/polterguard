@@ -77,6 +77,23 @@ public class BossAI : MonoBehaviour
         {
             stateTimer = 0;
         }
+        if ((stateTimer > 55 && stateTimer < 140) && state == "laserAttack")
+        {
+            if (Vector3.Cross(transform.forward, target.position - transform.position).y > 0)
+            {
+                laserdir = 1;
+            }
+            else { laserdir = 0; }
+            CreateLaserHitbox();
+            if (laserdir == 0)
+            {
+                transform.Rotate(0, -1f, 0);
+            }
+            else
+            {
+                transform.Rotate(0, 1f, 0);
+            }
+        }
         prevState = state;
     }
     void Update()
@@ -178,23 +195,7 @@ public class BossAI : MonoBehaviour
                         FacePlayer();
                         //laserdir = Random.Range(0, 2);
                     }
-                    if(stateTimer > 55 && stateTimer < 140)
-                    {
-                        if(Vector3.Cross(transform.forward,target.position-transform.position).y > 0)
-                        {
-                            laserdir = 1;
-                        }
-                        else { laserdir = 0; }
-                        CreateLaserHitbox();
-                        if (laserdir == 0)
-                        {
-                            transform.Rotate(0, -3, 0);
-                        }
-                        else
-                        {
-                            transform.Rotate(0, 3, 0);
-                        }
-                    }
+
                     break;
                 case "enrage":
                     StopMoving();
