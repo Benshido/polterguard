@@ -54,7 +54,7 @@ public class PauseMenu : MonoBehaviour
 
     public void GoBackToMainMenu()
     {
-        Debug.Log("Go to main menu");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void DeathScreen(bool playerIsAlive)
