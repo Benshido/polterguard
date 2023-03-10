@@ -95,11 +95,11 @@ public class BossAI : MonoBehaviour
             CreateLaserHitbox();
             if (laserdir == 0)
             {
-                transform.Rotate(0, -2f, 0);
+                transform.Rotate(0, -1.75f, 0);
             }
             else
             {
-                transform.Rotate(0, 2f, 0);
+                transform.Rotate(0, 1.75f, 0);
             }
         }
         prevState = state;
@@ -121,11 +121,11 @@ public class BossAI : MonoBehaviour
             switch (state)
             {
                 case "unaggroed":
-                    anim.SetTrigger("Idle");
+                    //anim.SetTrigger("Idle");
                     break;
                 case "idle":
                     EnableHurtbox();
-                    anim.SetTrigger("Idle");
+                    //anim.SetTrigger("Idle");
                     anim.SetBool("Attack", false);
                     StopMoving();
                     if((myLife.HitPoints <= maxHP / 2) && !hasEnraged)
@@ -146,7 +146,7 @@ public class BossAI : MonoBehaviour
                     break;
                 case "movingToPlayer":
                     ChaseTarget();
-                    //anim.SetTrigger("Move"); 
+                    anim.SetBool("walking",true); 
                     if (stateTimer >= 60)
                     {
                         if (distanceToTarg > meleeRange)
@@ -182,10 +182,14 @@ public class BossAI : MonoBehaviour
                     StopMoving();
                     if (stateTimer == 1) { FacePlayer(); }
                     //state = "idle"; 
+                    //anim.SetTrigger("idle");
+                    anim.SetBool("walking",false); 
                     anim.SetBool("Attack", true);
                     anim.SetInteger("AttackType", 2);
                     break;
                 case "defending":
+                    //anim.SetTrigger("idle");
+                    anim.SetBool("walking",false); 
                     Debug.Log("defend");
                     StopMoving();
                     FacePlayer();
@@ -194,6 +198,8 @@ public class BossAI : MonoBehaviour
                     //state = "idle";
                     break;
                 case "meleeAttack":
+                    //anim.SetTrigger("idle");
+                    anim.SetBool("walking",false); 
                     Debug.Log("melee");
                     StopMoving();
                     anim.SetBool("Attack", true);
@@ -203,7 +209,9 @@ public class BossAI : MonoBehaviour
                 case "laserAttack":
                     StopMoving();
                     anim.SetBool("Attack", true);
+                    anim.SetBool("walking",false); 
                     anim.SetInteger("AttackType", 3);
+                    //anim.SetTrigger("idle");
                     if(stateTimer == 1)
                     {
                         FacePlayer();
@@ -212,6 +220,8 @@ public class BossAI : MonoBehaviour
 
                     break;
                 case "enrage":
+                    //anim.SetTrigger("idle");
+                    anim.SetBool("walking",false); 
                     StopMoving();
                     DisableHurtbox();
                     anim.SetBool("Attack", true);
@@ -223,6 +233,7 @@ public class BossAI : MonoBehaviour
                 default: Debug.Log("bad state"); break;
             }
 
+                    //anim.SetBool("Move",false); 
             /*if (Provoked)
             {
                 StartCoroutine(AlertedStateTimer());
@@ -322,7 +333,7 @@ public class BossAI : MonoBehaviour
             visionRange = baseVisionRange + visionAlertedStateIncrease;
             agent.SetDestination(target.position);
 
-            anim.SetTrigger("Move");
+            //anim.SetTrigger("Move");
         }
         anim.SetBool("Attack", false);
     }
