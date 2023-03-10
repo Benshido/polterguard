@@ -11,8 +11,6 @@ public class InteractionRoderick : MonoBehaviour
     public bool Interacted = false;
     public GameObject InteractText;
     public Animator animator;
-    public GameObject PlayerCam;
-    public GameObject DoorCam;
     public GameObject Player;
     public GameObject Levelexit;
 
@@ -53,21 +51,10 @@ public class InteractionRoderick : MonoBehaviour
                 animator.enabled = true;
                 Interacted = true;
                 InteractText.SetActive(false);
-                PlayerCam.SetActive(false);
-                DoorCam.SetActive(true);
-                Player.GetComponent<FirstPersonController>().enabled = false;
-                StartCoroutine(CameraTimer(3));
                 this.GetComponent<MeshRenderer>().enabled = false;
                 Levelexit.SetActive(true);
+                this.gameObject.SetActive(false);
             }
         }
-    }
-    IEnumerator CameraTimer(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        PlayerCam.SetActive(true);
-        DoorCam.SetActive(false);
-        Player.GetComponent<FirstPersonController>().enabled = true;
-        this.gameObject.SetActive(false);
     }
 }
