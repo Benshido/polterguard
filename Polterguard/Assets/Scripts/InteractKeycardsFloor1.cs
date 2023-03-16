@@ -11,13 +11,14 @@ public class InteractKeycardsFloor1 : MonoBehaviour
     public bool Interacted = false;
     public GameObject InteractText;
     public float KeycardsCollected = 0;
+    public bool interacted = false;
 
 
     private void OnTriggerEnter(Collider other)
     {
         if (this.enabled == true)
         {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "Player" && interacted == false)
             {
                 interactive = 1;
                 InteractText.SetActive(true);
@@ -42,14 +43,16 @@ public class InteractKeycardsFloor1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (interactive == 1)
+        if (interactive == 1 && interacted == false)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Interacted = true;
                 InteractText.SetActive(false);
                 KeycardsCollected++;
-                gameObject.GetComponent<MeshRenderer>().enabled = false;    
+                gameObject.GetComponent<MeshRenderer>().enabled = false;
+                //gameObject.GetComponent<SphereCollider>().enabled = false;
+                interacted = true;
             }
         }
     }
